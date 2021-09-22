@@ -14,7 +14,7 @@ import java.util.concurrent.TimeUnit
 
 object AFHttp : Application.ActivityLifecycleCallbacks {
     var debug = false
-    private var coroutineScope : CoroutineScope? = null
+    private var coroutineScope: CoroutineScope? = null
     private var didInit = false
 
 
@@ -23,7 +23,7 @@ object AFHttp : Application.ActivityLifecycleCallbacks {
         CookieHandler.setDefault(cookieManager)
     }
 
-     fun init(context: Context) {
+    fun init(context: Context) {
         (context.applicationContext as Application).registerActivityLifecycleCallbacks(this)
         didInit = true
     }
@@ -34,11 +34,11 @@ object AFHttp : Application.ActivityLifecycleCallbacks {
         maxRedirections: Int = 10,
         listener: AFResolverListener
     ) {
-        if (!didInit){
+        if (!didInit) {
             afDebugLog("The SDK must be initialized with context first")
             return
         }
-        if (coroutineScope == null){
+        if (coroutineScope == null) {
             coroutineScope = CoroutineScope(Dispatchers.IO)
         }
         if (url == null) {

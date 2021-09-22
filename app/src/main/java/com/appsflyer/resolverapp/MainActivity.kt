@@ -1,8 +1,8 @@
 package com.appsflyer.resolverapp
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import androidx.appcompat.app.AppCompatActivity
 import com.appsflyer.resolver.AFHttp
 
 class MainActivity : AppCompatActivity() {
@@ -11,7 +11,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         AFHttp.debug = true
         AFHttp.init(this)
-        AFHttp.resolveDeepLinkValue("dfcd"){ res ->
+        AFHttp.resolveDeepLinkValue("dfcd") { res ->
             res?.let {
                 Log.d("TAG", "onCreate: $it")
             }
