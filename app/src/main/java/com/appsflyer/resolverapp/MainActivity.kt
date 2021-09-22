@@ -9,9 +9,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        AFHttp.debug = true
-        AFHttp.init(this)
-        AFHttp.resolveDeepLinkValue("dfcd") { res ->
+        AFHttp(this).resolveDeepLinkValue("dfcd") { res ->
             res?.let {
                 Log.d("TAG", "onCreate: $it")
             }
